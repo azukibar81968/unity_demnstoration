@@ -48,4 +48,7 @@ MonoBehaviour:
   - {fileID: 5043656939241037486, guid: 9a3a9d0261ac6d54a8d343122fdfee35, type: 3}
   - {fileID: 7029895734961534340, guid: 2edff747a5e261f47bb4f94ee63f1e7c, type: 3}
   enemyCreater: {fileID: 0}
+  mother: {fileID: 1461946840429762609, guid: de8dca59f7e72d440b06ef3b63a84d4e, type: 3}
+  motherInstance: {fileID: 0}
   phase: 0
+  phaseTime: 2

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 10.0f;
+    public GameObject ending;
     // Start is called before the first frame update
     void Start ()
     {
@@ -65,15 +66,14 @@ public class Player : MonoBehaviour
 		// レイヤー名がEnemyの場合は爆発
 		if( layerName == "Enemy")
 		{
-			// // Managerコンポーネントをシーン内から探して取得し、GameOverメソッドを呼び出す
-			// FindObjectOfType<Manager>().GameOver();
-			
-			// // 爆発する
-			// spaceship.Explosion();
-			
 			// プレイヤーを削除
 			Destroy (gameObject);
 		}
+        if( layerName == "Mother"){
+            DeleteEnemys bomb = GameObject.FindObjectOfType<DeleteEnemys> ();
+            bomb.shotBomb();
+            Instantiate(ending,transform.position, transform.rotation);
+        }
 	}
 
     private void OnDestroy() {
