@@ -6,9 +6,8 @@ public class Player : MonoBehaviour
 {
     public float speed = 10.0f;
     // Start is called before the first frame update
-    void Start()
+    void Start ()
     {
-        
     }
 
     // Update is called once per frame
@@ -31,6 +30,12 @@ public class Player : MonoBehaviour
 	// 機体の移動
 	void Move (Vector2 direction)
 	{
+        float slowRate = 1.0f;
+        if(Input.GetKey(KeyCode.LeftShift)){
+            slowRate = 2.5f;
+        }else{
+            slowRate = 1.0f;
+        }
 		// 画面左下のワールド座標をビューポートから取得
 		Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
 		
@@ -41,7 +46,7 @@ public class Player : MonoBehaviour
 		Vector2 pos = transform.position;
 		
 		// 移動量を加える
-		pos += direction  * speed * Time.deltaTime;
+		pos += direction  * speed * Time.deltaTime / slowRate;
 		
 		// プレイヤーの位置が画面内に収まるように制限をかける
 		pos.x = Mathf.Clamp (pos.x, min.x, max.x);
@@ -70,4 +75,9 @@ public class Player : MonoBehaviour
 			Destroy (gameObject);
 		}
 	}
+
+    private void OnDestroy() {
+        DeleteEnemys bomb = GameObject.FindObjectOfType<DeleteEnemys> ();
+        bomb.shotBomb();
+    }
 }
