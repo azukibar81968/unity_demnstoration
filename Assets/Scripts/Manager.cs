@@ -8,6 +8,8 @@ public class Manager : MonoBehaviour
     public GameObject player;
     public GameObject progresserAssets;
     public GameObject progresser;
+    public GameObject bomb;
+    public DeleteEnemys deleteEnemys;
 
     // タイトル
     private GameObject title;
@@ -17,6 +19,7 @@ public class Manager : MonoBehaviour
     {
         // Titleゲームオブジェクトを検索し取得する
         title = GameObject.Find ("Title");
+        deleteEnemys = bomb.GetComponent<DeleteEnemys>();
     }
 
     void Update ()
@@ -41,6 +44,7 @@ public class Manager : MonoBehaviour
         title.SetActive (false);
         Instantiate (player, player.transform.position, player.transform.rotation);
         progresser = Instantiate (progresserAssets, transform.position, transform.rotation);
+        deleteEnemys.bombEnable = true;   
     }
 
     public void GameOver ()
@@ -57,6 +61,8 @@ public class Manager : MonoBehaviour
             Destroy(cube);
         }
         Destroy(progresser);
+
+        deleteEnemys.bombEnable = true;   
     }
 
     public bool IsPlaying ()

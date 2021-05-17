@@ -72,10 +72,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1884719184928649695, guid: fdc0e384a1265934da57902a52178a41,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8162842381291246614, guid: fdc0e384a1265934da57902a52178a41,
         type: 3}
       propertyPath: m_Name
-      value: Enemy1
+      value: Enemy_midiam
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdc0e384a1265934da57902a52178a41, type: 3}

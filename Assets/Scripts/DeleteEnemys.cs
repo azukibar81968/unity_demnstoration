@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeleteEnemys : MonoBehaviour
 {
     public BombEffect bomb;
+    public bool bombEnable = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +16,10 @@ public class DeleteEnemys : MonoBehaviour
     void Update()
     {
         Collider2D col = GetComponent<Collider2D>();
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space) && bombEnable == true){
             Instantiate(bomb,transform.position,transform.rotation);
-        }
-        if(Input.GetKey(KeyCode.Space)){
-            col.offset = new Vector2(0,0);
+            bombEnable = false;
+            DestroyEnemy();
         }
         else{
             col.offset = new Vector2(100,0);
@@ -37,6 +37,17 @@ public class DeleteEnemys : MonoBehaviour
         Instantiate(bomb,transform.position,transform.rotation);
         for(int i = 0; i<20 ; i++){
             col.offset = new Vector2(0,0);
+        }
+    }
+
+    void DestroyEnemy(){
+        GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+
+        // GameObject型の変数cubeに、cubesの中身を順番に取り出す。
+        // foreachは配列の要素の数だけループします。
+        foreach (GameObject cube in enemys) {
+            // 消す！
+            Destroy(cube);
         }
     }
 }

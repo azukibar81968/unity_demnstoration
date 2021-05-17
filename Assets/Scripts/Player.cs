@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 	{
         float slowRate = 1.0f;
         if(Input.GetKey(KeyCode.LeftShift)){
-            slowRate = 2.5f;
+            slowRate = 3.0f;
         }else{
             slowRate = 1.0f;
         }

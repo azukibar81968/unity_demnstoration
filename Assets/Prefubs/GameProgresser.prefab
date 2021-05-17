@@ -51,4 +51,4 @@ MonoBehaviour:
   mother: {fileID: 1461946840429762609, guid: de8dca59f7e72d440b06ef3b63a84d4e, type: 3}
   motherInstance: {fileID: 0}
   phase: 0
-  phaseTime: 2
+  phaseTime: 25
